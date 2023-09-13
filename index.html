@@ -11,13 +11,41 @@
         padding: 0;
         overflow: hidden;
        }
+       body{
+        background-color: darkcyan;
+       }
        #gamebox{
-        height: 100vh;
-        width: 100vw;
-        background-color: black;
+        height: 80vh;
+        width: 80vw;
+        animation: changeBg  100s linear infinite;
         overflow: hidden;
+        position: relative;
+        margin:auto;
+        margin-top: 10vh;
        }
        
+      @keyframes changeBg{
+        0%{
+          background-color:lightblue ;
+        }
+        20%{
+          background-color:lightcoral ;
+        }
+        40%{
+          background-color:lightsalmon ;
+        }
+        60%{
+          background-color:lightsteelblue ;
+        }
+        80%{
+          background-color: lightgreen;
+        }
+        100%{
+          background-color: lightslategray;
+        }
+
+      }
+
        #userscore , #aiscore{
         color: white;
         font-size: 50px;
@@ -47,10 +75,10 @@
        #userpaddle{
         width: 20px;
         background-color: white;
-        height: 100px;
+        height: 15%;
         position: absolute;
         top: 50%;
-        left: 5px;
+        left: 15px;
         border-radius: 20px;
         transform: translateY(-50%);
        }
@@ -58,10 +86,10 @@
        #aipaddle{
         width: 20px;
         background-color: rgb(180, 42, 42);
-        height: 100px;
+        height: 15%;
         position: absolute;
         top: 50%;
-        right: 5px;
+        right: 15px;
         border-radius: 20px;
         transform: translateY(-50%);
        }
@@ -76,9 +104,57 @@
          transform: translate(-50% , -50%);
          border-radius: 50%;
        }
+
+      
+      #startButton{
+         background-color: #0074d9;
+         color: white;
+         border: none;
+         padding: 10px 20px;
+         font-size: 16px;
+         cursor: pointer;
+         border-radius: 5px;
+         transition: background-color 0.3s ease-in-out;
+         position: absolute;
+         left: 50%;
+         top: 30%;
+         transform: translate(-50% , -30%);
+         z-index: 1;
+      }
+
+       #startButton:hover {
+       background-color: #0056b3;
+     }
+
+      #pauseButton{
+         background-color: #0074d9;
+         color: white;
+         border: none;
+         padding: 10px 20px;
+         font-size: 16px;
+         cursor: pointer;
+         border-radius: 5px;
+         transition: background-color 0.3s ease-in-out;
+         position: absolute;
+         left: 50%;
+         top: 5%;
+         transform: translate(-50% , -30%);
+         z-index: 1;
+      }
+
+      
+      #pauseButton:hover {
+       background-color: #0056b3;
+     }
+
    </style>
-<body>
+<body> 
+     <div>
+      <button id="pauseButton">Pause Game</button>
+    </div>
     <div id="gamebox">
+      <button id="startButton">Start Game</button>
+
         <div class="scoreboard">
            <div id="userscore">0</div>
            <div id="aiscore">0</div>
@@ -88,6 +164,7 @@
         <div id="aipaddle"></div>
         <div id="ball"></div>
     </div>
+   
     <script src="script.js"></script>
 </body>
 </html>
